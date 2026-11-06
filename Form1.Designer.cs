@@ -50,7 +50,13 @@
             this.situationtext = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.checkIDtext = new System.Windows.Forms.TextBox();
+            this.checkNAMEtext = new System.Windows.Forms.TextBox();
+            this.checkID = new System.Windows.Forms.Button();
+            this.checkNAME = new System.Windows.Forms.Button();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // NAMEinsert
@@ -234,18 +240,67 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(195, 220);
+            this.dataGridView1.Location = new System.Drawing.Point(162, 220);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 27;
-            this.dataGridView1.Size = new System.Drawing.Size(143, 203);
+            this.dataGridView1.Size = new System.Drawing.Size(176, 203);
             this.dataGridView1.TabIndex = 24;
+            // 
+            // checkIDtext
+            // 
+            this.checkIDtext.Location = new System.Drawing.Point(12, 465);
+            this.checkIDtext.Name = "checkIDtext";
+            this.checkIDtext.Size = new System.Drawing.Size(100, 25);
+            this.checkIDtext.TabIndex = 25;
+            // 
+            // checkNAMEtext
+            // 
+            this.checkNAMEtext.Location = new System.Drawing.Point(195, 465);
+            this.checkNAMEtext.Name = "checkNAMEtext";
+            this.checkNAMEtext.Size = new System.Drawing.Size(100, 25);
+            this.checkNAMEtext.TabIndex = 27;
+            // 
+            // checkID
+            // 
+            this.checkID.Location = new System.Drawing.Point(27, 496);
+            this.checkID.Name = "checkID";
+            this.checkID.Size = new System.Drawing.Size(75, 23);
+            this.checkID.TabIndex = 28;
+            this.checkID.Text = "按ID查询";
+            this.checkID.UseVisualStyleBackColor = true;
+            this.checkID.Click += new System.EventHandler(this.checkID_Click);
+            // 
+            // checkNAME
+            // 
+            this.checkNAME.Location = new System.Drawing.Point(196, 496);
+            this.checkNAME.Name = "checkNAME";
+            this.checkNAME.Size = new System.Drawing.Size(99, 23);
+            this.checkNAME.TabIndex = 29;
+            this.checkNAME.Text = "按称号查询";
+            this.checkNAME.UseVisualStyleBackColor = true;
+            this.checkNAME.Click += new System.EventHandler(this.checkNAME_Click);
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(12, 525);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersWidth = 51;
+            this.dataGridView2.RowTemplate.Height = 27;
+            this.dataGridView2.Size = new System.Drawing.Size(326, 102);
+            this.dataGridView2.TabIndex = 30;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(351, 469);
+            this.ClientSize = new System.Drawing.Size(351, 633);
+            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.checkNAME);
+            this.Controls.Add(this.checkID);
+            this.Controls.Add(this.checkNAMEtext);
+            this.Controls.Add(this.checkIDtext);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.situationtext);
@@ -272,6 +327,7 @@
             this.Text = "mysql";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -300,6 +356,11 @@
         private System.Windows.Forms.TextBox situationtext;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox checkIDtext;
+        private System.Windows.Forms.TextBox checkNAMEtext;
+        private System.Windows.Forms.Button checkID;
+        private System.Windows.Forms.Button checkNAME;
+        private System.Windows.Forms.DataGridView dataGridView2;
     }
 }
 

@@ -283,5 +283,86 @@ namespace MySQLtest01
 
             dataGridView1.DataSource = dt;
         }
+        
+        private DataTable IDcheck()
+        {
+            string IDText = checkIDtext.Text.Trim();
+            if (IDText == "")
+            {
+                MessageBox.Show("请输入要查询的ID！");
+                return new DataTable();
+            }
+            string sql = "SELECT * FROM test_records WHERE id = @id";
+            DataTable dt = new DataTable();
+            using (MySqlConnection conn = new MySqlConnection(MySqlConn))
+            {
+                using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", IDText);
+                    try
+                    {
+                        conn.Open();
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            situationtext.Text = "PASS";
+                            dt.Load(reader);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("查询失败：" + ex.Message);
+                    }
+                }
+            }
+            return dt;
+        }
+
+        private DataTable NAMEcheck()
+        {
+            string NAMEText = checkNAMEtext.Text.Trim();
+            if (NAMEText == "")
+            {
+                MessageBox.Show("请输入要查询的名称！");
+                return new DataTable();
+            }
+            string sql = "SELECT * FROM test_records WHERE test_name LIKE @test_name";
+            DataTable dt = new DataTable();
+            using (MySqlConnection conn = new MySqlConnection(MySqlConn))
+            {
+                using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@test_name", "%" + NAMEText + "%");
+                    try
+                    {
+                        conn.Open();
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            situationtext.Text = "PASS";
+                            dt.Load(reader);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("查询失败：" + ex.Message);
+                    }
+                }
+            }
+            return dt;
+        }
+
+        private void checkID_Click(object sender, EventArgs e)
+        {
+            DataTable dt = IDcheck();
+
+            dataGridView2.DataSource = dt;
+
+        }
+
+        private void checkNAME_Click(object sender, EventArgs e)
+        {
+            DataTable dt = NAMEcheck();
+
+            dataGridView2.DataSource = dt;
+        }
     }
 }
