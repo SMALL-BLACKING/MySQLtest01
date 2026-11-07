@@ -22,6 +22,7 @@ namespace MySQLtest01
             InitializeComponent();
         }
 
+        //窗口文本框初始化
         private void Form1_Load(object sender, EventArgs e)
         {
             NAMEinsert.Text = "";
@@ -36,6 +37,7 @@ namespace MySQLtest01
 
         }
 
+        //插入函数
         public void AddRecord_Click()
         {
 
@@ -103,6 +105,7 @@ namespace MySQLtest01
             }
         }
 
+        //删除函数
         public void DeleteRecord()
         {
             string IDdeleteText = IDdelete.Text.Trim();
@@ -156,6 +159,7 @@ namespace MySQLtest01
             }
         }
 
+        //更新名称函数
         public void UpdateNAMERecord()
         {
             string IDText = ID.Text.Trim();
@@ -192,6 +196,7 @@ namespace MySQLtest01
             }
         }
 
+        //更改ID函数
         public void UpdateIDRecord()
         {
             string IDupdateText = IDupdate.Text.Trim();
@@ -229,10 +234,10 @@ namespace MySQLtest01
         }
 
         
-
+        //查询函数
         public DataTable GetAllRecords()
         {
-            string sql = "SELECT * FROM test_records ORDER BY id DESC"; // 按 ID 倒序，最新的在最上面
+            string sql = "SELECT * FROM test_records ORDER BY id DESC"; 
             DataTable dt = new DataTable();
 
             using (MySqlConnection conn = new MySqlConnection(MySqlConn))
@@ -284,7 +289,7 @@ namespace MySQLtest01
             dataGridView1.DataSource = dt;
         }
 
-        //查询函数
+        //按ID查询函数
         private DataTable IDcheck()
         {
             string IDText = checkIDtext.Text.Trim();
@@ -318,6 +323,7 @@ namespace MySQLtest01
             return dt;
         }
 
+        //按名称查询函数（模糊查询）
         private DataTable NAMEcheck()
         {
             string NAMEText = checkNAMEtext.Text.Trim();
