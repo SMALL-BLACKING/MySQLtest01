@@ -283,7 +283,8 @@ namespace MySQLtest01
 
             dataGridView1.DataSource = dt;
         }
-        
+
+        //查询函数
         private DataTable IDcheck()
         {
             string IDText = checkIDtext.Text.Trim();
